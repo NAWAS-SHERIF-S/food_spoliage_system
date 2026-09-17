@@ -82,3 +82,36 @@ PRODUCE_LATIN: dict[str, str] = {
     "tomato": "Solanum lycopersicum",
     "unknown": "Specimen incognitus",
 }
+
+PRODUCE_BASE_SHELF_LIFE: dict[str, tuple[int, int]] = {
+    "apple": (14, 30),
+    "banana": (3, 7),
+    "bellpepper": (7, 14),
+    "bitter_gourd": (4, 7),
+    "carrot": (14, 28),
+    "cucumber": (5, 9),
+    "mango": (4, 8),
+    "okra": (3, 5),
+    "orange": (10, 21),
+    "potato": (21, 60),
+    "strawberry": (2, 5),
+    "tomato": (5, 10),
+    "unknown": (0, 0),
+}
+
+PRESERVATION_TIPS: dict[str, str] = {
+    "apple": "Store in the refrigerator crisp drawer (4°C). Keep separate from ethylene-sensitive produce.",
+    "banana": "Store at room temperature away from direct sunlight. Wrap stems in foil to slow ripening.",
+    "bellpepper": "Refrigerate unwashed in a loose plastic bag. Keep dry to prevent moisture rot.",
+    "bitter_gourd": "Wrap in paper towel and refrigerate at 7–10°C. Consume within 4-5 days.",
+    "carrot": "Cut off green tops before storing. Keep in a plastic bag in the fridge crisper.",
+    "cucumber": "Store in warmer part of fridge (around 10°C). Avoid storing near ethylene producers.",
+    "mango": "Keep at room temp until soft and sweet, then refrigerate for up to 5 days.",
+    "okra": "Refrigerate in a perforated paper bag. Keep dry; moisture causes rapid decay.",
+    "orange": "Store at room temp for up to a week, or refrigerate in a mesh bag for up to 3 weeks.",
+    "potato": "Store in a cool, dark, well-ventilated place. Never refrigerate or store near onions.",
+    "strawberry": "Refrigerate in a single layer on paper towels. Wash only right before eating.",
+    "tomato": "Keep stem-side down at room temperature away from sunlight. Avoid refrigerating unripened tomatoes.",
+    "unknown": "Inspect carefully before consumption. Store in cool, dry environment.",
+}
+

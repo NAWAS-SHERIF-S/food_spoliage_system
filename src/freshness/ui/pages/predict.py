@@ -147,6 +147,11 @@ def _render_specimen_card(detection: DetectedProduce, index: int) -> None:
         else '<span class="fg-card__attr-value fg-card__attr-value--state-unknown">N / A</span>'
     )
 
+    from freshness.services.shelflife import estimate_shelf_life
+    from freshness.db.database import add_inventory_item
+
+    shelf_est = estimate_shelf_life(detection.produce_type, detection.freshness, detection.confidence)
+
     st.markdown(
         f"""
         <div class="fg-card">
@@ -164,14 +169,34 @@ def _render_specimen_card(detection: DetectedProduce, index: int) -> None:
             <div>{state_label_html}</div>
             <div class="fg-card__attr-label">CONFIDENCE</div>
             <div class="fg-card__attr-value fg-card__attr-value--mono">{confidence_str}</div>
-            <div class="fg-card__attr-label">CLASS</div>
-            <div class="fg-card__attr-value fg-card__attr-value--mono">{detection.combined_label}</div>
+            <div class="fg-card__attr-label">SHELF LIFE</div>
+            <div class="fg-card__attr-value fg-card__attr-value--mono">{shelf_est.status_badge}</div>
+          </div>
+          <div style="margin-top: 10px; font-size: 0.85rem; color: #a0aec0; background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px;">
+            <strong>Preservation Tip:</strong> {shelf_est.preservation_tip}
           </div>
           {reason_html}
         </div>
         """,
         unsafe_allow_html=True,
     )
+
+    if detection.produce_type != "unknown" and detection.freshness != "n_a":
+        if st.button(
+            f"📥 Add {display_type} to Inventory",
+            key=f"add_inv_{index}_{detection.produce_type}",
+            use_container_width=True,
+        ):
+            add_inventory_item(
+                produce_type=detection.produce_type,
+                freshness_state=detection.freshness,
+                confidence=detection.confidence,
+                estimated_days_left=shelf_est.recommended_days,
+                preservation_tip=shelf_est.preservation_tip,
+                source="scan",
+            )
+            st.toast(f"✅ Added {display_type} ({shelf_est.status_badge}) to Inventory!")
+
 
 
 def _render_pipeline_unavailable(error: str | None) -> None:

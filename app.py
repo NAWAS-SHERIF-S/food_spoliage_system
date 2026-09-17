@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import streamlit as st
 
+from freshness.ui.pages.analytics import render_page as render_analytics_page
+from freshness.ui.pages.inventory import render_page as render_inventory_page
 from freshness.ui.pages.model_card import render_page as render_model_card_page
 from freshness.ui.pages.predict import render_page as render_predict_page
 from freshness.ui.styles import inject_styles
@@ -28,6 +30,18 @@ def main() -> None:
                 default=True,
             ),
             st.Page(
+                render_inventory_page,
+                title="Smart Inventory",
+                icon=":material/inventory:",
+                url_path="inventory",
+            ),
+            st.Page(
+                render_analytics_page,
+                title="Analytics & Waste",
+                icon=":material/analytics:",
+                url_path="analytics",
+            ),
+            st.Page(
                 render_model_card_page,
                 title="Field Guide",
                 icon=":material/menu_book:",
@@ -35,6 +49,7 @@ def main() -> None:
             ),
         ]
     )
+
     navigation.run()
 
 
