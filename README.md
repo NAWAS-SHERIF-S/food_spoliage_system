@@ -206,6 +206,6 @@ Local Streamlit demo · v2.1 release `v0.3.1` · single-author project · MIT li
 
 ## Contact
 
-[Abdulrahman Elsmmany](https://github.com/Abdulrahman-Elsmmany) · [eng.elsmmany@gmail.com](mailto:eng.elsmmany@gmail.com) · [linkedin](https://www.linkedin.com/in/abdulrahman-elsmmany/)
+[nawassherif525@gmail.com](mailto:nawassherif525@gmail.com)
 
 [MIT License](LICENSE) · © 2026
