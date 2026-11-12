@@ -23,7 +23,7 @@ End-to-end run through the **Specimen Lab** page: image upload → YOLO26n produ
   <img src="https://raw.githubusercontent.com/Abdulrahman-Elsmmany/Abdulrahman-Elsmmany/main/assets/demos/freshguard-demo.gif" alt="FreshGuard Specimen Lab — end-to-end inference demo" width="100%">
 </p>
 
-> The GIF is hosted in [the profile repo](https://github.com/Abdulrahman-Elsmmany/Abdulrahman-Elsmmany/tree/main/assets/demos) to keep this repo lean. To run it yourself, follow [Quickstart](#quickstart) below.
+> To run it yourself, follow [Quickstart](#quickstart) below.
 
 ---
 
